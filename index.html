@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZONE C LIQUOR - Lodge & Entertainment | Kigamboni Islamic Beach</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --primary-dark: #121212;
+            --secondary-dark: #1e1e1e;
+            --accent-color: #ff6b35;
+            --text-light: #f8f9fa;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .navbar-brand {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--primary-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-gold);
+            border-radius: 4px;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .navbar-brand {
+            color: var(--primary-gold) !important;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+            margin: 0 8px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-gold) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(18, 18, 18, 0.9)), 
+                        url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+        }
+
+        .hero-title span {
+            color: var(--primary-gold);
+        }
+
+        .btn-gold {
+            background-color: var(--primary-gold);
+            color: #000;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: 2px solid var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            background-color: transparent;
+            color: var(--primary-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Section Titles */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--accent-color);
+            bottom: 0;
+            left: 25%;
+        }
+
+        /* Feature & Service Cards */
+        .card-custom {
+            background-color: var(--secondary-dark);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+        }
+
+        /* Room Section Images */
+        .room-img-container {
+            overflow: hidden;
+            position: relative;
+            height: 230px;
+        }
+
+        .room-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card-custom:hover .room-img-container img {
+            transform: scale(1.1);
+        }
+
+        .badge-amenity {
+            background-color: rgba(212, 175, 55, 0.15);
+            color: var(--primary-gold);
+            border: 1px solid var(--primary-gold);
+            font-size: 0.75rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            padding: 5px 10px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        /* Live Music Banner */
+        .live-band-section {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            padding: 80px 0;
+            border-top: 1px solid var(--primary-gold);
+            border-bottom: 1px solid var(--primary-gold);
+        }
+
+        /* Contact & Location */
+        .info-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .info-box i {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            width: 50px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Responsive Breakpoints Fine-Tuning */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fa-solid font-awesome fa-martini-glass-citrus me-2"></i>ZONE C LIQUOR
+            </a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#rooms">Bedrooms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#liveband">Live Music</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="container" data-aos="zoom-in" data-aos-duration="1000">
+            <h1 class="hero-title">Welcome to <span>ZONE C LIQUOR</span></h1>
+            <p class="lead text-light mb-4 fs-4">Your Premier Coastal Lodge, Lounge & Entertainment Hub</p>
+            <p class="text-warning mb-4"><i class="fa-solid fa-location-dot me-2"></i>Kigamboni Islamic Beach, Dar es Salaam</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#rooms" class="btn btn-gold">Book a Room</a>
+                <a href="#services" class="btn btn-outline-light rounded-pill px-4 py-2 border-2">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Zone C Lodge Exterior" class="img-fluid rounded-4 shadow-lg border border-secondary">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="ps-lg-4">
+                        <h2 class="text-warning mb-3">A Haven for Guests, Visitors & Tourists</h2>
+                        <p class="text-secondary-light fs-5">Situated along the serene Kigamboni Islamic Beach, Zone C Liquor is designed to provide maximum relaxation, comfort, and coastal entertainment.</p>
+                        <p class="text-muted">Whether you are looking for a restful night's sleep in our fully equipped luxury bedrooms, refreshing signature drinks by the beach, or dynamic evening live band performances, we offer an unforgettable experience tailored for local guests and international tourists alike.</p>
+                        <div class="row mt-4">
+                            <div class="col-6 mb-3">
+                                <i class="fa-solid fa-wifi text-warning me-2"></i> Ultra-Fast Wi-Fi
+                            </div>
+                            <div class="col-6 mb-3">
+                                <i class="fa-solid fa-snowflake text-warning me-2"></i> Full Air Conditioning
+                            </div>
+                            <div class="col-6 mb-3">
+                                <i class="fa-solid fa-shield-halved text-warning me-2"></i> 24/7 Secure Parking
+                            </div>
+                            <div class="col-6 mb-3">
+                                <i class="fa-solid fa-utensils text-warning me-2"></i> Room Service & Dining
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-5 bg-black">
+        <div class="container py-4">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Our Premier Services</h2>
+                <p class="text-muted mt-2">Everything you need for rest, refreshment, and entertainment</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-custom p-4 text-center">
+                        <i class="fa-solid fa-bed feature-icon"></i>
+                        <h4 class="mb-3">Luxury Bedrooms</h4>
+                        <p class="text-muted">Comfortable, air-conditioned rooms tailored for short stay relaxation or long vacation stays.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-custom p-4 text-center">
+                        <i class="fa-solid fa-wine-glass feature-icon"></i>
+                        <h4 class="mb-3">Bar & Premium Drinks</h4>
+                        <p class="text-muted">Extensive collection of spirits, ice-cold beers, cocktails, and non-alcoholic refreshments.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-custom p-4 text-center">
+                        <i class="fa-solid fa-guitar feature-icon"></i>
+                        <h4 class="mb-3">Live Band Music</h4>
+                        <p class="text-muted">Vibrant musical performances, local talent, and live entertainment under the beach lights.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-custom p-4 text-center">
+                        <i class="fa-solid fa-wifi feature-icon"></i>
+                        <h4 class="mb-3">Free High-Speed Wi-Fi</h4>
+                        <p class="text-muted">Stay connected with complimentary high-speed internet throughout the lodge and lounge area.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-custom p-4 text-center">
+                        <i class="fa-solid fa-snowflake feature-icon"></i>
+                        <h4 class="mb-3">Climate Control (A/C)</h4>
+                        <p class="text-muted">Beat the coastal heat with individual air-conditioning units in every sleeping guest suite.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card-custom p-4 text-center">
+                        <i class="fa-solid fa-umbrella-beach feature-icon"></i>
+                        <h4 class="mb-3">Beachside Access</h4>
+                        <p class="text-muted">Just steps away from the clean sands and ocean breeze of Kigamboni Islamic Beach.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rooms" class="py-5">
+        <div class="container py-4">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Accommodations & Lodging</h2>
+                <p class="text-muted mt-2">Clean, cozy, and private guest spaces</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card-custom">
+                        <div class="room-img-container">
+                            <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=600&q=80" alt="Standard Room">
+                        </div>
+                        <div class="p-4">
+                            <h4>Standard Guest Suite</h4>
+                            <p class="text-muted small">Ideal for travelers seeking comfort and essential modern amenities.</p>
+                            <div class="mb-3">
+                                <span class="badge-amenity"><i class="fa-solid fa-snowflake"></i> A/C</span>
+                                <span class="badge-amenity"><i class="fa-solid fa-wifi"></i> Free Wi-Fi</span>
+                                <span class="badge-amenity"><i class="fa-solid fa-tv"></i> Smart TV</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="#contact" class="btn btn-sm btn-gold">Reserve Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card-custom">
+                        <div class="room-img-container">
+                            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80" alt="Deluxe Room">
+                        </div>
+                        <div class="p-4">
+                            <h4>Deluxe Executive Room</h4>
+                            <p class="text-muted small">Spacious layout equipped with a king-size bed and private balcony view.</p>
+                            <div class="mb-3">
+                                <span class="badge-amenity"><i class="fa-solid fa-snowflake"></i> A/C</span>
+                                <span class="badge-amenity"><i class="fa-solid fa-wifi"></i> Free Wi-Fi</span>
+                                <span class="badge-amenity"><i class="fa-solid fa-martini-glass"></i> Mini Bar</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="#contact" class="btn btn-sm btn-gold">Reserve Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card-custom">
+                        <div class="room-img-container">
+                            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80" alt="VIP Beach Suite">
+                        </div>
+                        <div class="p-4">
+                            <h4>VIP Ocean Breeze Suite</h4>
+                            <p class="text-muted small">Premium lodging with luxury fixtures, room service, and extra privacy.</p>
+                            <div class="mb-3">
+                                <span class="badge-amenity"><i class="fa-solid fa-snowflake"></i> A/C</span>
+                                <span class="badge-amenity"><i class="fa-solid fa-wifi"></i> Free Wi-Fi</span>
+                                <span class="badge-amenity"><i class="fa-solid fa-bell"></i> 24/7 Service</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="#contact" class="btn btn-sm btn-gold">Reserve Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="liveband" class="live-band-section text-center">
+        <div class="container" data-aos="fade-up">
+            <i class="fa-solid fa-compact-disc fa-spin text-warning display-4 mb-3" style="--fa-animation-duration: 6s;"></i>
+            <h2 class="display-5 text-warning fw-bold mb-3">Live Band & Nighttime Vibes</h2>
+            <p class="fs-5 max-w-600 mx-auto mb-4 text-light">Unwind with top live music bands, cold drinks, and a vibrant beachside atmosphere. Every weekend at Zone C Liquor!</p>
+            <a href="#contact" class="btn btn-gold btn-lg">Join Us This Weekend</a>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5">
+        <div class="container py-4">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Visit Us & Reservations</h2>
+                <p class="text-muted mt-2">Get in touch or stop by our location in Kigamboni</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="card-custom p-4">
+                        <h3 class="text-warning mb-4">Contact Information</h3>
+                        <div class="info-box">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h6 class="mb-0">Location</h6>
+                                <small class="text-muted">Kigamboni Islamic Beach, Dar es Salaam, Tanzania</small>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <h6 class="mb-0">Phone / WhatsApp</h6>
+                                <small class="text-muted">+255 700 000 000</small>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <h6 class="mb-0">Email</h6>
+                                <small class="text-muted">info@zonecliquor.co.tz</small>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <i class="fa-solid fa-clock"></i>
+                            <div>
+                                <h6 class="mb-0">Lodge Hours</h6>
+                                <small class="text-muted">Open 24/7 for Guests & Visitors</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="card-custom p-4">
+                        <h3 class="text-warning mb-4">Send a Message / Room Inquiry</h3>
+                        <form onsubmit="event.preventDefault(); alert('Thank you! Your request has been received.');">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control bg-dark text-light border-secondary" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" class="form-control bg-dark text-light border-secondary" placeholder="Phone Number" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-select bg-dark text-light border-secondary">
+                                        <option selected>Service Interested In...</option>
+                                        <option value="1">Bedroom Reservation</option>
+                                        <option value="2">Drinks / Table Reservation</option>
+                                        <option value="3">Live Band Event Inquiry</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control bg-dark text-light border-secondary">
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control bg-dark text-light border-secondary" rows="4" placeholder="Your Message or Special Request..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-gold w-100">Send Request</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="mb-1">&copy; 2026 <strong>ZONE C LIQUOR</strong>. All Rights Reserved.</p>
+            <p class="small text-muted mb-0">Kigamboni Islamic Beach | Lodge, Bar & Entertainment</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Scroll Animations
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Close collapse navbar on link click in mobile view
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.getElementById('navbarNav');
+                if (navbarCollapse.classList.contains('show')) {
+                    new bootstrap.Collapse(navbarCollapse).toggle();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
